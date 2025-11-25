@@ -1,0 +1,1597 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gamspartner | Focus on Growth, We Manage the Web</title>
+    <meta name="description" content="Gamspartner provides professional managed web services, including content maintenance, SEO, social media management, and performance optimization.">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* --- CSS Variables & Reset --- */
+        :root {
+            --primary: #0f172a;       /* Deep Blue: Professional, Trust */
+            --accent: #2563eb;        /* Bright Blue: Tech, Growth */
+            --accent-hover: #1d4ed8;
+            --text-dark: #1e293b;
+            --text-gray: #64748b;
+            --light-bg: #f3f6f9;      /* Light Blue-Grey */
+            --white: #ffffff;
+            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --radius: 8px;
+            --container-width: 1200px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--white);
+            overflow-x: hidden;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        img { display: block; max-width: 100%; }
+
+        /* --- Layout Utilities --- */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 16px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .section-header h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background: var(--accent);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        .section-header p {
+            font-size: 1.125rem;
+            color: var(--text-gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 32px;
+            font-weight: 600;
+            border-radius: var(--radius);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: var(--accent);
+            color: var(--white);
+            box-shadow: 0 4px 14px 0 rgba(37, 99, 235, 0.39);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--accent-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px 0 rgba(37, 99, 235, 0.23);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--white);
+            color: var(--white);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--white);
+            color: var(--primary);
+        }
+
+        /* --- Navbar --- */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo i { color: var(--accent); }
+
+        .nav-menu {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: var(--text-dark);
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover { color: var(--accent); }
+
+        .mobile-toggle {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-dark);
+        }
+
+        /* --- Hero Section --- */
+        .hero {
+            position: relative;
+            height: 100vh;
+            min-height: 600px;
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(30, 58, 138, 0.9) 100%), 
+                        url('https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            color: var(--white);
+            margin-top: 0;
+            padding-top: 80px; 
+        }
+
+        .hero-content {
+            max-width: 800px;
+            animation: fadeIn Up 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+            font-weight: 800;
+            margin-bottom: 24px;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: #e2e8f0;
+            margin-bottom: 40px;
+            max-width: 700px;
+        }
+
+        .hero-features {
+            display: flex;
+            gap: 24px;
+            margin-bottom: 40px;
+            font-size: 0.95rem;
+            color: #94a3b8;
+        }
+
+        .hero-feature-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .hero-feature-item i { color: #4ade80; }
+
+        .hero-btns {
+            display: flex;
+            gap: 16px;
+        }
+
+        /* --- Stats Bar --- */
+        .stats-bar {
+            background-color: var(--white);
+            margin-top: -60px;
+            position: relative;
+            z-index: 10;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            border-radius: var(--radius);
+            padding: 40px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+        }
+
+        .stat-item {
+            text-align: center;
+            border-right: 1px solid #e2e8f0;
+        }
+
+        .stat-item:last-child { border-right: none; }
+
+        .stat-item i {
+            font-size: 2rem;
+            color: var(--accent);
+            margin-bottom: 12px;
+        }
+
+        .stat-item h4 {
+            font-size: 1.25rem;
+            margin-bottom: 4px;
+            font-weight: 700;
+        }
+
+        .stat-item p {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+
+        /* --- Services Section (Light BG) --- */
+        .services {
+            background-color: var(--light-bg);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+        }
+
+        .service-card {
+            background: var(--white);
+            padding: 40px 32px;
+            border-radius: var(--radius);
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.02);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--accent);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+            transform-origin: left;
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .icon-box {
+            width: 60px;
+            height: 60px;
+            background-color: #eff6ff;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            color: var(--accent);
+            font-size: 1.5rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 16px;
+        }
+
+        .service-list {
+            margin-top: 20px;
+        }
+
+        .service-list li {
+            margin-bottom: 10px;
+            font-size: 0.95rem;
+            color: var(--text-gray);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .service-list li i {
+            color: #10b981;
+            font-size: 0.8rem;
+        }
+
+        /* --- Success Stories (White BG) --- */
+        .case-study {
+            background-color: var(--white);
+        }
+
+        .case-card {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+        
+        .case-card.reverse {
+            direction: rtl;
+        }
+        
+        .case-card.reverse .case-content {
+            direction: ltr;
+        }
+
+        .case-img {
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            height: 400px;
+        }
+
+        .case-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .case-card:hover .case-img img {
+            transform: scale(1.05);
+        }
+
+        .case-tag {
+            display: inline-block;
+            background-color: #eff6ff;
+            color: var(--accent);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+
+        .case-content h3 {
+            font-size: 1.75rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        .case-metrics {
+            display: flex;
+            gap: 24px;
+            margin: 30px 0;
+            padding: 20px 0;
+            border-top: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .metric {
+            flex: 1;
+        }
+
+        .metric div {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--accent);
+            white-space: nowrap;
+        }
+
+        .metric span {
+            font-size: 0.9rem;
+            color: var(--text-gray);
+        }
+
+        .case-scenario {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px dashed #e2e8f0;
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        /* --- Why Choose Us (Light BG) --- */
+        .why-us {
+            background-color: var(--light-bg);
+        }
+        
+        .why-us-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 40px;
+        }
+        
+        .why-us-card {
+            background: transparent;
+            padding: 0;
+            border-radius: 0;
+            box-shadow: none;
+            border: none;
+            display: flex; 
+            align-items: flex-start; 
+            gap: 24px;
+            transition: transform 0.3s ease;
+        }
+        
+        .why-us-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .why-us-icon {
+            flex-shrink: 0;
+            width: 64px;
+            height: 64px;
+            border-radius: 50%;
+            background-color: var(--white);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 0;
+        }
+        
+        .why-us-content {
+            flex: 1;
+        }
+        
+        .why-us-content h3 {
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+            color: var(--primary);
+            font-weight: 700;
+        }
+        
+        .why-us-content p {
+            font-size: 0.95rem;
+            color: var(--text-gray);
+            line-height: 1.7;
+        }
+        
+        /* --- Our Methodology (White BG) --- */
+        .process {
+            background-color: var(--white);
+        }
+
+        .process-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .process-container::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: #f1f5f9;
+            transform: translateX(-50%);
+            z-index: 0;
+        }
+
+        .process-step {
+            position: relative;
+            margin-bottom: 60px;
+            z-index: 1;
+        }
+
+        .process-step:last-child {
+            margin-bottom: 0;
+        }
+
+        .process-arrow {
+            position: absolute;
+            left: 50%;
+            bottom: -45px;
+            transform: translateX(-50%);
+            width: 30px;
+            height: 30px;
+            background-color: var(--white);
+            border: 2px solid #e2e8f0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-size: 0.9rem;
+            z-index: 2;
+        }
+
+        .process-step:last-child .process-arrow {
+            display: none;
+        }
+
+        .process-card {
+            background: var(--white);
+            padding: 40px;
+            border-radius: var(--radius);
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+            transition: all 0.3s ease;
+            display: flex;
+            gap: 30px;
+            align-items: flex-start;
+        }
+
+        .process-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(37, 99, 235, 0.1);
+            border-color: var(--accent);
+        }
+
+        .process-icon {
+            flex-shrink: 0;
+            width: 70px;
+            height: 70px;
+            background-color: #eff6ff;
+            color: var(--accent);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+        }
+
+        .process-content {
+            flex: 1;
+        }
+
+        .process-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .process-content h3 {
+            font-size: 1.25rem;
+            color: var(--primary);
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .process-number {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: rgba(37, 99, 235, 0.08);
+            line-height: 1;
+        }
+
+        .process-content p {
+            font-size: 1rem;
+            color: var(--text-gray);
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+
+        .process-sublist {
+            list-style: none;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px dashed #e2e8f0;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .process-sublist li {
+            font-size: 0.9rem;
+            color: #64748b;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .process-sublist li i {
+            color: var(--accent);
+            font-size: 0.8rem;
+        }
+
+        /* --- About Us (Dark BG) --- */
+        .about {
+            background-color: var(--primary);
+            color: var(--white);
+            position: relative;
+            text-align: center;
+        }
+
+        .about-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .about-content h2 {
+            font-size: 2.25rem;
+            margin-bottom: 24px;
+            color: var(--white);
+        }
+
+        .about-content p {
+            color: #cbd5e1;
+            margin-bottom: 24px;
+            font-size: 1.1rem;
+        }
+
+        .values-list {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .value-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(255,255,255,0.1);
+            padding: 10px 20px;
+            border-radius: 50px;
+        }
+
+        .value-item i {
+            color: #4ade80;
+        }
+
+        /* --- Contact Us (Light BG) --- */
+        .contact {
+            background-color: var(--light-bg);
+        }
+
+        .contact-wrapper {
+            background-color: var(--white);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+        }
+
+        .contact-info {
+            background-color: var(--primary);
+            padding: 60px 40px;
+            color: var(--white);
+        }
+
+        .contact-info h3 {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .info-item i {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+        }
+
+        .contact-form {
+            padding: 60px 40px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            height: 120px;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: #020617;
+            color: #94a3b8;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h2 {
+            color: var(--white);
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+        }
+
+        .footer-col h4 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #1e293b;
+            font-size: 0.9rem;
+        }
+
+        /* --- Privacy Modal Structure --- */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 2000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.6);
+            backdrop-filter: blur(5px);
+            animation: fadeIn 0.3s;
+        }
+
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 40px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 900px;
+            border-radius: 12px;
+            position: relative;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+            max-height: 85vh;
+            overflow-y: auto;
+        }
+
+        .close-modal {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            position: sticky;
+            top: 0;
+            right: 0;
+            background: #fff;
+            padding: 0 10px;
+        }
+
+        .close-modal:hover,
+        .close-modal:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        /* Privacy Policy Content Styles */
+        .privacy-body h2 {
+            font-size: 1.4rem;
+            color: var(--primary);
+            margin-top: 30px;
+            margin-bottom: 15px;
+            border-left: 4px solid var(--accent);
+            padding-left: 10px;
+        }
+        .privacy-body h1 { text-align: center; margin-bottom: 20px; color: var(--primary); }
+        .privacy-body p { margin-bottom: 12px; line-height: 1.7; }
+        .privacy-body ul { margin-left: 20px; margin-bottom: 20px; list-style: disc; }
+        .privacy-body li { margin-bottom: 5px; }
+
+        @keyframes fadeIn {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 992px) {
+            .hero h1 { font-size: 2.8rem; }
+            .stats-bar { grid-template-columns: 1fr 1fr; }
+            .stat-item:nth-child(2) { border-right: none; }
+            .case-card, .contact-wrapper { grid-template-columns: 1fr; }
+            .case-card.reverse { direction: ltr; }
+            .case-img { height: 300px; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background-color: var(--white);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                transition: 0.4s ease;
+                box-shadow: inset 0 2px 5px rgba(0,0,0,0.05);
+            }
+
+            .nav-menu.active { left: 0; }
+            .mobile-toggle { display: block; }
+            
+            .hero { text-align: center; justify-content: center; }
+            .hero-content { margin: 0 auto; }
+            .hero-features { justify-content: center; }
+            .hero-btns { justify-content: center; }
+            
+            .stats-bar { 
+                grid-template-columns: 1fr; 
+                margin-top: 0;
+                border-radius: 0;
+            }
+            .stat-item { border-right: none; border-bottom: 1px solid #e2e8f0; padding-bottom: 20px; margin-bottom: 20px; }
+            .stat-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+            .why-us-grid { grid-template-columns: 1fr; }
+            .why-us-card {
+                padding: 24px;
+                border-radius: 12px;
+                align-items: flex-start;
+            }
+            
+            .process-grid { grid-template-columns: 1fr; }
+            .process-container::before { left: 35px; }
+            .process-card { flex-direction: column; gap: 20px; padding: 30px; }
+            .process-icon { width: 50px; height: 50px; font-size: 1.4rem; border-radius: 12px; }
+            .process-header { flex-direction: row-reverse; justify-content: flex-end; gap: 15px; }
+            .process-number { font-size: 1.8rem; position: static; }
+            .process-arrow { left: 50%; }
+            .process-sublist { grid-template-columns: 1fr; }
+            
+            .modal-content { width: 95%; margin: 10% auto; padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <i class="fa-solid fa-rocket"></i> Gamspartner
+            </a>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="#cases" class="nav-link">Success Stories</a></li>
+                <li><a href="#about" class="nav-link">About Us</a></li>
+                <li><a href="#contact" class="btn btn-primary">Free Consultation</a></li>
+            </ul>
+            <div class="mobile-toggle" id="mobileToggle">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Focus on Growth<br>We Manage the Web</h1>
+                <p>We provide end-to-end managed web services covering content maintenance, SEO, and social media management to reduce costs, boost conversions, and deliver measurable growth</p>
+                <div class="hero-features">
+                    <div class="hero-feature-item"><i class="fa-solid fa-check-circle"></i> Expert Team</div>
+                    <div class="hero-feature-item"><i class="fa-solid fa-check-circle"></i> Transparent Data</div>
+                    <div class="hero-feature-item"><i class="fa-solid fa-check-circle"></i> Flexible Plans</div>
+                </div>
+                <div class="hero-btns">
+                    <a href="#contact" class="btn btn-primary">Start Now</a>
+                    <a href="#services" class="btn btn-outline">View Services</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <div class="container">
+        <div class="stats-bar">
+            <div class="stat-item">
+                <i class="fa-solid fa-users-gear"></i>
+                <h4>100+</h4>
+                <p>Companies Chose Us</p>
+            </div>
+            <div class="stat-item">
+                <i class="fa-solid fa-arrow-trend-up"></i>
+                <h4>40%–80%</h4>
+                <p>Avg. Organic Growth</p>
+            </div>
+            <div class="stat-item">
+                <i class="fa-solid fa-file-pen"></i>
+                <h4>3,000+</h4>
+                <p>Premium Content Pieces</p>
+            </div>
+            <div class="stat-item">
+                <i class="fa-solid fa-clock"></i>
+                <h4>Fast Response</h4>
+                <p>24/7 Critical Monitoring</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Services Section -->
+    <section id="services" class="section services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Comprehensive Digital Operations</h2>
+                <p>Tailored solutions for startups and established enterprises alike</p>
+            </div>
+            <div class="services-grid">
+                <!-- Service 1 -->
+                <div class="service-card">
+                    <div class="icon-box">
+                        <i class="fa-solid fa-laptop-code"></i>
+                    </div>
+                    <h3>Managed Web Operations</h3>
+                    <p class="text-gray">Free up your internal resources. We ensure your website remains current, fast, and secure.</p>
+                    <ul class="service-list">
+                        <li><i class="fa-solid fa-check"></i> Regular Content Updates</li>
+                        <li><i class="fa-solid fa-check"></i> Technical Structure Maintenance</li>
+                        <li><i class="fa-solid fa-check"></i> Server & Security Monitoring</li>
+                    </ul>
+                </div>
+                <!-- Service 2 -->
+                <div class="service-card">
+                    <div class="icon-box">
+                        <i class="fa-solid fa-pen-nib"></i>
+                    </div>
+                    <h3>Premium Content Creation</h3>
+                    <p class="text-gray">Content is king. We provide professional copywriting and visual design to tell your brand story.</p>
+                    <ul class="service-list">
+                        <li><i class="fa-solid fa-check"></i> In-Depth Industry Articles</li>
+                        <li><i class="fa-solid fa-check"></i> High-Converting Landing Pages</li>
+                        <li><i class="fa-solid fa-check"></i> Graphics & Multimedia</li>
+                    </ul>
+                </div>
+                <!-- Service 3 -->
+                <div class="service-card">
+                    <div class="icon-box">
+                        <i class="fa-solid fa-magnifying-glass-chart"></i>
+                    </div>
+                    <h3>Search Engine Optimization (SEO)</h3>
+                    <p class="text-gray">Using white-hat SEO techniques to improve your rankings on search engines like Google.</p>
+                    <ul class="service-list">
+                        <li><i class="fa-solid fa-check"></i> Core Keyword Strategy</li>
+                        <li><i class="fa-solid fa-check"></i> On-Page Technical SEO</li>
+                        <li><i class="fa-solid fa-check"></i> Monthly Ranking Reports</li>
+                    </ul>
+                </div>
+                <!-- Service 4 -->
+                <div class="service-card">
+                    <div class="icon-box">
+                        <i class="fa-solid fa-share-nodes"></i>
+                    </div>
+                    <h3>Social Media Management</h3>
+                    <p class="text-gray">Connect with your audience. We build brand voice across major social platforms.</p>
+                    <ul class="service-list">
+                        <li><i class="fa-solid fa-check"></i> Daily Operations & Maintenance</li>
+                        <li><i class="fa-solid fa-check"></i> Creative Campaign Planning</li>
+                        <li><i class="fa-solid fa-check"></i> Engagement & Growth</li>
+                    </ul>
+                </div>
+                <!-- Service 5 -->
+                <div class="service-card">
+                    <div class="icon-box">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+                    <h3>Data Analytics & Reporting</h3>
+                    <p class="text-gray">Back every operation with data to make growth measurable.</p>
+                    <ul class="service-list">
+                        <li><i class="fa-solid fa-check"></i> Traffic & User Analysis</li>
+                        <li><i class="fa-solid fa-check"></i> SEO Ranking Monitoring</li>
+                        <li><i class="fa-solid fa-check"></i> Social Performance Tracking</li>
+                        <li><i class="fa-solid fa-check"></i> Monthly Reports & Insights</li>
+                    </ul>
+                </div>
+                <!-- Service 6 -->
+                <div class="service-card">
+                    <div class="icon-box">
+                        <i class="fa-solid fa-bolt"></i>
+                    </div>
+                    <h3>Website Performance Optimization</h3>
+                    <p class="text-gray">Boost speed, optimize user experience, and increase conversion rates.</p>
+                    <ul class="service-list">
+                        <li><i class="fa-solid fa-check"></i> Page Load Speed Optimization</li>
+                        <li><i class="fa-solid fa-check"></i> Asset Compression & Optimization</li>
+                        <li><i class="fa-solid fa-check"></i> Mobile Performance Enhancement</li>
+                        <li><i class="fa-solid fa-check"></i> CDN Deployment & Acceleration</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Stories (Cases) -->
+    <section id="cases" class="section case-study">
+        <div class="container">
+            <div class="section-header">
+                <h2>Success Stories</h2>
+                <p>Strategic insights based on industry experience, offering a proven path to growth</p>
+                <p style="font-size: 0.85rem; color: #94a3b8; margin-top: 10px; font-style: italic;">
+                    * Note: The following are typical operational models and estimated results based on Gamspartner's industry experience database, intended to demonstrate strategic logic rather than specific client data
+                </p>
+            </div>
+            
+            <!-- Case 1 -->
+            <div class="case-card">
+                <div class="case-img">
+                    <img src="https://images.unsplash.com/photo-1661956602116-aa6865609028?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Cross-border E-commerce Operation">
+                </div>
+                <div class="case-content">
+                    <span class="case-tag">Cross-Border DTC E-Commerce</span>
+                    <h3>Escaping Ad Dependency, Building a Traffic Moat</h3>
+                    <p><strong>Background:</strong> An early-stage cross-border DTC site facing weak organic traffic and low profit margins due to heavy reliance on paid advertising.</p>
+                    <div class="case-metrics">
+                        <div class="metric">
+                            <div>25%–45%</div>
+                            <span>Organic Traffic Lift</span>
+                        </div>
+                        <div class="metric">
+                            <div>35%–55%</div>
+                            <span>Inquiry Rate Lift</span>
+                        </div>
+                        <div class="metric">
+                            <div>12%–18%</div>
+                            <span>Ad Spend Reduction</span>
+                        </div>
+                    </div>
+                    <h4>Execution Strategy:</h4>
+                    <p style="font-size: 0.95rem; color: #64748b;">
+                        <i class="fa-solid fa-angle-right" style="color: var(--accent);"></i> Optimized conversion paths on home & product pages<br>
+                        <i class="fa-solid fa-angle-right" style="color: var(--accent);"></i> Built foundational content library (2–4 premium posts/mo)<br>
+                        <i class="fa-solid fa-angle-right" style="color: var(--accent);"></i> Deployed 10–15 core commercial keyword groups & technical SEO
+                    </p>
+                    <div class="case-scenario">
+                        <strong>Ideal For:</strong> DTC brands restricted by low margins and dependent on paid ads, needing to build a private traffic pool
+                    </div>
+                </div>
+            </div>
+
+            <!-- Case 2 -->
+            <div class="case-card reverse">
+                <div class="case-img">
+                    <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Traditional Brand Transformation">
+                </div>
+                <div class="case-content">
+                    <span class="case-tag">Traditional Brand Transformation</span>
+                    <h3>Building a Digital Content System from Scratch</h3>
+                    <p><strong>Background:</strong> A traditional offline brand expanding online for the first time, lacking a systematic content strategy and operational rhythm.</p>
+                    <div class="case-metrics">
+                        <div class="metric">
+                            <div>2,500+</div>
+                            <span>Monthly Social Growth</span>
+                        </div>
+                        <div class="metric">
+                            <div>40%–70%</div>
+                            <span>Site Visits Lift</span>
+                        </div>
+                        <div class="metric">
+                            <div>15%–30%</div>
+                            <span>Campaign Conv. Lift</span>
+                        </div>
+                    </div>
+                    <h4>Execution Strategy:</h4>
+                    <p style="font-size: 0.95rem; color: #64748b;">
+                        <i class="fa-solid fa-angle-right" style="color: var(--accent);"></i> Unified visual & content style across all channels<br>
+                        <i class="fa-solid fa-angle-right" style="color: var(--accent);"></i> Established consistent output of brand campaigns & scenario content<br>
+                        <i class="fa-solid fa-angle-right" style="color: var(--accent);"></i> Launched refined social operations & foundational SEO for brand exposure
+                    </p>
+                    <div class="case-scenario">
+                        <strong>Ideal For:</strong> Traditional enterprises with a strong offline foundation looking to quickly establish online brand awareness and content systems
+                    </div>
+                </div>
+            </div>
+
+            <!-- Case 3 -->
+            <div class="case-card">
+                <div class="case-img">
+                    <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Local Service Promotion">
+                </div>
+                <div class="case-content">
+                    <span class="case-tag">Local Service Providers</span>
+                    <h3>Targeting Local Prospects, Lowering Acquisition Costs</h3>
+                    <!-- 修改：更新背景描述 -->
+                    <p><strong>Background:</strong> Local law firms with poorly ranked websites that struggle to capture precise local traffic.</p>
+                    <div class="case-metrics">
+                        <div class="metric">
+                            <div>60%–100%</div>
+                            <span>Search Exposure Lift</span>
+                        </div>
+                        <div class="metric">
+                            <div>25%–45%</div>
+                            <span>Inquiry Volume Lift</span>
+                        </div>
+                        <div class="metric">
+                            <div>15%–25%</div>
+                            <span>Acquisition Cost Drop</span>
+                        </div>
+                    </div>
+                    <h4>Execution Strategy:</h4>
+                    <p style="font-size: 0.95rem; color: #64748b;">
+                        <i class="fa-solid fa-angle-right" style="color: var(--accent);"></i> Deep optimization of service landing pages<br>
+                        <i class="fa-solid fa-angle-right" style="color: var(--accent);"></i> Monthly production of 2–3 local SEO-focused articles<br>
+                        <i class="fa-solid fa-angle-right" style="color: var(--accent);"></i> Deployment of "Service + Location" keywords & social reputation management
+                    </p>
+                    <div class="case-scenario">
+                        <strong>Ideal For:</strong> Service-based organizations relying on precise local traffic and looking to improve map rankings and local search authority
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section id="why-us" class="section why-us">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Choose Us?</h2>
+                <p>We believe sustainable digital growth comes from consistent execution, clear communication, and measurable results. Our approach focuses on long-term value—not vanity metrics or short-term traffic spikes</p>
+            </div>
+            <div class="why-us-grid">
+                <!-- Feature 1 -->
+                <div class="why-us-card">
+                    <div class="why-us-icon">
+                        <i class="fa-solid fa-bars-progress"></i>
+                    </div>
+                    <div class="why-us-content">
+                        <h3>Consistent, Reliable Execution</h3>
+                        <p>We operate as an extension of your team with disciplined monthly workflows that ensure every plan is executed thoroughly and on schedule</p>
+                    </div>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="why-us-card">
+                    <div class="why-us-icon">
+                        <i class="fa-solid fa-eye"></i>
+                    </div>
+                    <div class="why-us-content">
+                        <h3>Full Transparency at Every Step</h3>
+                        <p>You’ll always know what’s happening. We provide clear visibility into priorities, deliverables, performance shifts, and optimization decisions—no hidden processes or vague reporting</p>
+                    </div>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="why-us-card">
+                    <div class="why-us-icon">
+                        <i class="fa-solid fa-chart-pie"></i>
+                    </div>
+                    <div class="why-us-content">
+                        <h3>Data-Driven Decision Making</h3>
+                        <p>Every strategy we propose is backed by data: user behavior insights, ranking trends, content performance, and conversion impact. No guesswork—only measurable decisions that drive growth</p>
+                    </div>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="why-us-card">
+                    <div class="why-us-icon">
+                        <i class="fa-solid fa-shield-halved"></i>
+                    </div>
+                    <div class="why-us-content">
+                        <h3>Compliance-Focused & Long-Term Minded</h3>
+                        <p>We use only ethical, white-hat strategies that protect your domain reputation and build durable, compounding growth over time</p>
+                    </div>
+                </div>
+
+                <!-- Feature 5 -->
+                <div class="why-us-card">
+                    <div class="why-us-icon">
+                        <i class="fa-solid fa-handshake-simple"></i>
+                    </div>
+                    <div class="why-us-content">
+                        <h3>Flexible Collaboration & Seamless Communication</h3>
+                        <p>Work on a month-to-month basis, scale services up or down, and communicate through a dedicated point of contact who synchronizes all execution, reporting, and technical needs</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Methodology (Process) -->
+    <section id="process" class="section process">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Methodology</h2>
+                <p>We follow a structured, repeatable workflow that transforms strategy into consistent growth. Clear processes and transparent execution are the foundation of how we work</p>
+            </div>
+            
+            <div class="process-container">
+                <!-- Step 01 -->
+                <div class="process-step">
+                    <div class="process-card">
+                        <div class="process-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+                        <div class="process-content">
+                            <div class="process-header">
+                                <h3>Baseline Audit & Insights</h3>
+                                <div class="process-number">01</div>
+                            </div>
+                            <p>We begin with a technical, content, SEO, and performance diagnosis to understand your current position and identify areas with the highest leverage</p>
+                        </div>
+                    </div>
+                    <div class="process-arrow"><i class="fa-solid fa-arrow-down"></i></div>
+                </div>
+
+                <!-- Step 02 -->
+                <div class="process-step">
+                    <div class="process-card">
+                        <div class="process-icon"><i class="fa-solid fa-chess-board"></i></div>
+                        <div class="process-content">
+                            <div class="process-header">
+                                <h3>Strategic Planning</h3>
+                                <div class="process-number">02</div>
+                            </div>
+                            <p>Based on the audit, we design an actionable monthly/quarterly plan covering content priorities, keyword strategy, technical improvements, and optimization roadmaps aligned with your goals</p>
+                        </div>
+                    </div>
+                    <div class="process-arrow"><i class="fa-solid fa-arrow-down"></i></div>
+                </div>
+
+                <!-- Step 03 -->
+                <div class="process-step">
+                    <div class="process-card">
+                        <div class="process-icon"><i class="fa-solid fa-pen-to-square"></i></div>
+                        <div class="process-content">
+                            <div class="process-header">
+                                <h3>Execution & Implementation</h3>
+                                <div class="process-number">03</div>
+                            </div>
+                            <p>Our team carries out the planned initiatives—content production, SEO improvements, technical fixes, performance optimization, and social content—ensuring all tasks are delivered with precision</p>
+                        </div>
+                    </div>
+                    <div class="process-arrow"><i class="fa-solid fa-arrow-down"></i></div>
+                </div>
+
+                <!-- Step 04 -->
+                <div class="process-step">
+                    <div class="process-card">
+                        <div class="process-icon"><i class="fa-solid fa-file-invoice"></i></div>
+                        <div class="process-content">
+                            <div class="process-header">
+                                <h3>Performance Tracking & Reporting</h3>
+                                <div class="process-number">04</div>
+                            </div>
+                            <p>We monitor traffic sources, ranking shifts, page behavior, conversions, and campaign effectiveness. Each month, we review results and discuss improvement opportunities</p>
+                        </div>
+                    </div>
+                    <div class="process-arrow"><i class="fa-solid fa-arrow-down"></i></div>
+                </div>
+
+                <!-- Step 05 -->
+                <div class="process-step">
+                    <div class="process-card">
+                        <div class="process-icon"><i class="fa-solid fa-arrow-trend-up"></i></div>
+                        <div class="process-content">
+                            <div class="process-header">
+                                <h3>Continuous Optimization Loop</h3>
+                                <div class="process-number">05</div>
+                            </div>
+                            <p>Using data from each cycle, we refine strategy, adjust priorities, and expand growth opportunities to build momentum and long-term scalability</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us -->
+    <section id="about" class="section about">
+        <div class="container">
+            <div class="about-container">
+                <div class="about-content">
+                    <h2>More Than a Vendor, We Are Your Growth Partner</h2>
+                    <p>We bring together senior operations experts dedicated to helping enterprises build competitive advantages in the global digital market</p>
+                    <p>We reject gimmicks and adhere to transparent data and compliant strategies to deliver measurable commercial results for our clients</p>
+                    <div class="values-list">
+                        <div class="value-item">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <span>Results-Driven</span>
+                        </div>
+                        <div class="value-item">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <span>Transparent Data</span>
+                        </div>
+                        <div class="value-item">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <span>Compliant Ops</span>
+                        </div>
+                        <div class="value-item">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <span>Continuous Innovation</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Us -->
+    <section id="contact" class="section contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Start Your Growth Journey Today</h2>
+                <p>Fill out the form below and we will provide you with a free website diagnostic report</p>
+            </div>
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <h3>Contact Us</h3>
+                    <p style="margin-bottom: 30px; color: rgba(255,255,255,0.8);">We look forward to connecting with you to discuss how to improve your online business performance</p>
+                    
+                    <!-- Company Name -->
+                    <div class="info-item">
+                        <i class="fa-solid fa-building"></i>
+                        <span>Gamspartner</span>
+                    </div>
+                    <!-- Email -->
+                    <div class="info-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>info@gamspartner.com</span>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label>Your Name</label>
+                            <input type="text" class="form-control" placeholder="Enter your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Email Address</label>
+                            <input type="email" class="form-control" placeholder="name@company.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Current Issues / Requirements</label>
+                            <textarea class="form-control" placeholder="E.g., I want to improve my website ranking on Google..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Submit Inquiry</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid" style="grid-template-columns: 2fr 1fr 1fr;">
+                <div class="footer-brand">
+                    <h2>Gamspartner</h2>
+                    <p>Gamspartner focuses on providing high-quality digital operation services for SMEs, making online marketing simple and efficient</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <!-- Link all items to the Services section -->
+                        <li><a href="#services">Managed Web Ops</a></li>
+                        <li><a href="#services">SEO Optimization</a></li>
+                        <li><a href="#services">Content Marketing</a></li>
+                        <li><a href="#services">Social Media Mgmt</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#cases">Success Stories</a></li>
+                        <li><a href="#" onclick="openPrivacy(event)">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Gamspartner. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Privacy Modal Structure -->
+    <div id="privacyModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closePrivacy()">&times;</span>
+            <div class="privacy-body">
+                <h1>Privacy Policy</h1>
+                <p style="text-align:center;color:#64748b;margin-bottom:30px;">Last Updated: March 15, 2025</p>
+                <p><strong>Gamspartner</strong> ("we," "us," or "our") takes your privacy protection very seriously. This Privacy Policy is designed to explain how we collect, use, disclose, and protect your personal information. By accessing our website or using our managed services, you agree to the practices described in this policy</p>
+                
+                <h2>1. Information We Collect</h2>
+                <p>We may collect the following types of information to provide you with better service:</p>
+                <ul>
+                    <li><strong>Personal Identity Information:</strong> When you fill out an inquiry form or contact us, you may provide information such as your name, email address, phone number, WeChat ID, company name, etc</li>
+                    <li><strong>Business Data:</strong> During the course of managed services, you may authorize us to access your website backend, analytics tools (such as Google Analytics), and social media accounts. We will use this data strictly in accordance with our contract</li>
+                    <li><strong>Automatically Collected Information:</strong> When you visit this website, our servers may automatically record log data such as your IP address, browser type, pages visited, and duration of visit for website performance analysis</li>
+                </ul>
+
+                <h2>2. Use of Information</h2>
+                <p>We use the collected information for the following purposes:</p>
+                <ul>
+                    <li>To provide, maintain, and improve our managed services</li>
+                    <li>To process your inquiries, quote requests, and customer support needs</li>
+                    <li>To send service-related notifications, invoices, reports, and necessary business communications</li>
+                    <li>To conduct data analysis to optimize our website experience and marketing strategies</li>
+                    <li>To comply with legal requirements or respond to lawful government requests</li>
+                </ul>
+
+                <h2>3. Information Protection & Security</h2>
+                <p>We implement industry-standard security measures (including SSL encryption, access control permission management, etc.) to prevent unauthorized access, disclosure, modification, or destruction of your personal information and business data. However, please understand that no method of transmission over the Internet is 100% secure</p>
+
+                <h2>4. Information Sharing & Disclosure</h2>
+                <p><strong>We do not sell your personal information.</strong> We may share your information only under the following circumstances:</p>
+                <ul>
+                    <li><strong>Service Providers:</strong> We may share necessary information with trusted third-party service providers (such as server hosting providers, email delivery services) to support our business operations. These third parties are bound by strict confidentiality agreements</li>
+                    <li><strong>Legal Requirements:</strong> We may disclose information if we have reason to believe that disclosure is necessary to comply with legal proceedings, enforce our terms of service, or protect the rights of Gamspartner</li>
+                </ul>
+
+                <h2>5. Use of Cookies</h2>
+                <p>This website may use Cookies and similar technologies to enhance user experience, such as remembering your language preferences or analyzing traffic sources. You can set your browser to refuse Cookies, but this may affect the proper functioning of some website features</p>
+
+                <h2>6. Third-Party Links</h2>
+                <p>This website may contain links to third-party websites. We are not responsible for the privacy practices or content of these third-party websites. We suggest you read the privacy policy of relevant websites when leaving our site</p>
+
+                <h2>7. Children's Privacy</h2>
+                <p>Our services are intended for businesses and adult professionals. We do not knowingly collect personal information from children under the age of 13</p>
+
+                <h2>8. Policy Updates</h2>
+                <p>We may update this Privacy Policy from time to time. Any material changes will be posted on this page, and the "Last Updated" date will be revised. We recommend you review this page periodically for the latest information</p>
+                
+                <div style="margin-top: 30px; padding-top: 20px; border-top: 1px dashed #ddd;">
+                    <h3>Contact Us</h3>
+                    <p>If you have any questions about this Privacy Policy, please contact us at:</p>
+                    <p>
+                        <i class="fa-solid fa-envelope"></i> Email: info@gamspartner.com
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const navMenu = document.getElementById('navMenu');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        mobileToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            const icon = mobileToggle.querySelector('i');
+            if (navMenu.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+            } else {
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Auto-close mobile menu on click
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                mobileToggle.querySelector('i').classList.remove('fa-xmark');
+                mobileToggle.querySelector('i').classList.add('fa-bars');
+            });
+        });
+
+        // Form Submission Simulation
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const btn = this.querySelector('button');
+            const originalText = btn.innerText;
+            
+            btn.innerText = 'Submitting...';
+            btn.style.opacity = '0.7';
+            
+            setTimeout(() => {
+                alert('Thank you for your inquiry! Our consultant will contact you within 24 hours.');
+                this.reset();
+                btn.innerText = originalText;
+                btn.style.opacity = '1';
+            }, 1500);
+        });
+
+        // Privacy Modal Controls
+        function openPrivacy(e) {
+            if(e) e.preventDefault();
+            document.getElementById('privacyModal').style.display = 'block';
+            document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        }
+
+        function closePrivacy() {
+            document.getElementById('privacyModal').style.display = 'none';
+            document.body.style.overflow = 'auto'; // Restore background scrolling
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('privacyModal');
+            if (event.target == modal) {
+                closePrivacy();
+            }
+        }
+    </script>
+</body>
+</html>
